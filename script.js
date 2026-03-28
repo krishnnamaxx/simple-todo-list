@@ -8,23 +8,23 @@ renderToDoList();
 
 function renderToDoList(){
 let  toDolistHTML='';
-for(let i=0;i<toDolist.length;i++){
-    const todoObject=toDolist[i];
+toDolist.forEach(function(todoObject,index){
    // const name=todoObject.name;
-   // const dueDate=todoObject.dueDate;
+   // const dueDate=todoObject.dueDate; 
     const {name,dueDate}=todoObject;
     const html =`
     <div>${name}</div>
     <div>${dueDate}</div>
     <button onclick="
-        toDolist.splice(${i},1);
+        toDolist.splice(${index},1);
         renderToDoList();
         <!-- whenever we update the todo list, save in localStorage . -->
         saveStorage();
     "class="delete-button">Delete</button>
     `;
     toDolistHTML+=html;
-}
+})
+
  document.querySelector('.js-display-task').innerHTML=toDolistHTML;
 }
 
