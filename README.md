@@ -40,7 +40,6 @@ A simple and beginner-friendly Todo List web app built using HTML, CSS, and Java
 ## 💡 Future Improvements
 * Add edit task feature
 * Add task completion (checkbox)
-* Store tasks using localStorage
 * Improve UI design
 
 ## 🙌 Author
