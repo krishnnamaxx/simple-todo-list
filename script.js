@@ -1,4 +1,4 @@
-const toDolist=[{
+const toDolist= JSON.parse(localStorage.getItem('toDolist'))|| [{
     name:'wash clothes',
     dueDate:'2026-03-27'},
     {
@@ -19,6 +19,8 @@ for(let i=0;i<toDolist.length;i++){
     <button onclick="
         toDolist.splice(${i},1);
         renderToDoList();
+        <!-- whenever we update the todo list, save in localStorage . -->
+        saveStorage();
     "class="delete-button">Delete</button>
     `;
     toDolistHTML+=html;
@@ -38,5 +40,11 @@ function addTask(){
      
      inputElement.value='';
      renderToDoList();
+     // Whenever we update the todo list, save in localStorage.
+     saveStorage();
+}
+
+function saveStorage(){
+    localStorage.setItem('toDolist',JSON.stringify(toDolist));
 }
 
